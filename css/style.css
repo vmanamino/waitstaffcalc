@@ -53,3 +53,7 @@
     width: 700px;
     left: 1053px;
 }
+
+input {
+    margin-left: 1em;
+}
