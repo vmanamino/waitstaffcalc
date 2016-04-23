@@ -57,3 +57,7 @@
 input {
     margin-left: 1em;
 }
+
+table {
+    margin: 0 auto;
+}
