@@ -54,10 +54,17 @@
     left: 1053px;
 }
 
-input {
+.inputs input {
     margin-left: 1em;
 }
 
 table {
     margin: 0 auto;
+}
+
+#reset {
+    position: absolute;
+    top: 900px;
+    /* left: 0px; */
+    right: 380px;
 }
