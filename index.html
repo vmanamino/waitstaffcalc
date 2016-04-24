@@ -17,20 +17,26 @@
                     <table>
                         <tr>
                             <td><p>Base meal price: $</p></td>
-                            <td><input id="basemeal" type="text" name="basemeal" ng-model="basemeal" /></td>
+                            <td><input id="basemeal" type="number" name="basemeal" ng-model="basemeal" required/></td>
                         </tr>
                         <tr>
                             <td><p>Tax rate: %</p></td>
-                            <td><input id="taxrate" type="text" name="taxrate"/></td>
+                            <td><input id="taxrate" type="number" name="taxrate" ng-model="taxrate" required /></td>
                         </tr>
                         <tr>
                             <td><p>Tip percentage: %</p></td>
-                            <td><input id="tip" type="text" name="tip"/></td>
+                            <td><input id="tipPercentage" type="number" name="tipPercentage" ng-model="tipPercentage" required /></td>
                         </tr>
                     </table>
                     <br/>
                     <input type="submit" value="Submit"/><input type="button" value="Cancel" ng-click="addTwo()"/>
                 </form>
+                <div class="errors" ng-hide="displayErrors">
+                    <h1 ng-if="myForm.$invalid">Input the following:</h1>
+                    <p ng-if="myForm.basemeal.$error.required">Base price of the meal</p>
+                    <p ng-if="myForm.taxrate.$error.required">Tax rate</p>
+                    <p ng-if="myForm.tipPercentage.$error.required">Tip percentage</p>
+                </div>
             </div>
         </div>
         <div class="charges">
@@ -39,18 +45,18 @@
                 <table>
                     <tr>
                         <td><p>Subtotal </p></td>
-                        <td><span>0.00</span></td>
+                        <td><span>{{ subtotal | currency }}</span></td>
                     </tr>
                     <tr>
                         <td><p>Tip </p></td>
-                        <td><span>0.00</span></td>
+                        <td><span>{{ tip | currency }}</span></td>
                     </tr>
                     <tr>
                         <td><hr width="150%"/></td>
                     </tr>
                     <tr>
                         <td><p>Total </p></td>
-                        <td><span>0.00</span></td>
+                        <td><span>{{ total | currency }}</span></td>
                     </tr>
                 </table>
             </div>
@@ -60,19 +66,19 @@
             <table>
                 <tr>
                     <td><p>Tip Total </p></td>
-                    <td><span>0.00</span></td>
+                    <td><span>{{ tiptotal }}</span></td>
                 </tr>
                 <tr>
                     <td><p>Meal Count</p></td>
-                    <td><span>0</span></td>
+                    <td><span>{{ meals }}</span></td>
                 </tr>
                 <tr>
                     <td><p>Average Tip </p></td>
-                    <td><span>0</span></td>
+                    <td><span>{{ avg }}</span></td>
                 </tr>
             </table>
         </div>
-        <input type="submit" id="reset" value="Reset"/>
+        <input type="button" id="reset" value="Reset" ng-click="reset()"/>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/app.js"></script>
