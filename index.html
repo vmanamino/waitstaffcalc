@@ -66,15 +66,15 @@
             <table>
                 <tr>
                     <td><p>Tip Total </p></td>
-                    <td><span>{{ tiptotal }}</span></td>
+                    <td><span>{{ tiptotal | currency}}</span></td>
                 </tr>
                 <tr>
                     <td><p>Meal Count</p></td>
-                    <td><span>{{ meals }}</span></td>
+                    <td><span>{{ meals | number }}</span></td>
                 </tr>
                 <tr>
                     <td><p>Average Tip </p></td>
-                    <td><span>{{ avg }}</span></td>
+                    <td><span>{{ avg | currency}}</span></td>
                 </tr>
             </table>
         </div>
