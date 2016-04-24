@@ -68,3 +68,7 @@ table {
     /* left: 0px; */
     right: 380px;
 }
+
+p {
+    padding-right: 15px;
+}
